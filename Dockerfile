@@ -37,13 +37,13 @@ RUN python setup.py bdist_wheel -d wheel
 FROM python:3-slim
 WORKDIR /opt/warp
 
-RUN \
+#RUN \
 #    --mount=type=bind,from=compile-image,source=/opt/warp/debs,target=./debs \
 #    dpkg -i debs/*.deb
 COPY --from=compile-image /opt/warp/debs ./debs
 RUN dpkg -i debs/*.deb
 
-RUN \
+#RUN \
 #    --mount=type=bind,from=compile-image,source=/opt/warp/wheel,target=./wheel \
 #    pip install --no-index wheel/*.whl
 COPY --from=compile-image /opt/warp/wheel ./wheel

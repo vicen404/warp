@@ -51,6 +51,8 @@ class DevelopmentSettings(DefaultSettings):
     ]
 
     SECRET_KEY = b'change_me'
+    
+    LANGUAGE_FILE="i18n/es.js"
 
 class ProductionSettings(DefaultSettings):
 
